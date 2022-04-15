@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:18.04
 
 RUN : \
     && apt-get update \
@@ -24,6 +24,8 @@ RUN python3 -m pip install --upgrade pip && \
 
 RUN apt update && apt install -y libsm6 libxext6 &&\
     apt-get install -y libxrender-dev
+RUN apt install git -y\
+    && cd \
+    && git clone https://github.com/longnguyen1233/UIT_Car.git
 
-CMD python client.py
-
+CMD python3.7 ~UIT_Car/3KL/client.py
